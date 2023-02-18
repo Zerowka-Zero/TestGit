@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>jm</groupId>
+    <artifactId>TestGit</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <version>3.0.2</version>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+
+                            <!-- указываем класс с методом main !но если также добавляем имя пакета в
+                             котором лежит этот класс ru.ryazan.Main -->
+                            <mainClass>jm.MainTest</mainClass>
+
+                            <!-- Указываем дополнительный каталог, который нужно включить в classpath -->
+                            <addClasspath>false</addClasspath>
+                            <classpathPrefix>data/lib/</classpathPrefix>
+
+                        </manifest>
+                        <manifestEntries>
+                            <!-- Эти записи добавятся в MANIFEST.MF- -->
+                            <My-Super-Description>Манифест</My-Super-Description>
+                            <Some-Key>23</Some-Key>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
+
+        </plugins>
+    </build>
+</project>
